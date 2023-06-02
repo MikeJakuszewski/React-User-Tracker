@@ -1,0 +1,9 @@
+.user-container__div p {
+  margin: 0;
+  padding: 5px;
+  border: 1px solid #ccc;
+}
+
+.user-container__div p:nth-child(2n) {
+  margin: 10px 0;
+}

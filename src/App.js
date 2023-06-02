@@ -1,23 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import AddUser from "./Users/AddUser";
+import "./App.css";
+import DisplayUsers from "./Users/DisplayUsers";
+
+const dummyData = [["Riley", "22"]];
 
 function App() {
+  const [data, setData] = useState(dummyData);
+
+  const userData = (userData) => {
+    setData((prevData) => [userData, ...prevData]);
+    // console.log(data);
+    // console.log(userData, "In App.js!");
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <AddUser getData={userData} />
+      <DisplayUsers userData={data} />
     </div>
   );
 }
